@@ -1,0 +1,14 @@
+- buscar post
+- feed
+- navegação entre paginas
+- criar post
+- editar post
+- apagar post
+
+
+
+POST
+- criar
+- editar
+- atualizar
+- deletar
