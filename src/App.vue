@@ -17,13 +17,36 @@ export default {
           content: "postar aqui é bem mais legal",
         },
       ],
+      FormData: {
+        title: "",
+        content: "",
+      },
     };
   },
-  methods:{
-    handleSubmit(event){
-      event.
-    }
-  }
+  methods: {
+    handleClick(event) {
+      console.log(this.FormData);
+
+      const now = new Date();
+
+
+      const datadaPostagem = `${now.getDate()}/${now.getMonth() + 1;}/${now.getFullYear()}`;
+
+      this.posts.push({
+        title: this.FormData.title,
+        datetime: datadaPostagem,
+        content: this.FormData.content,
+      });
+      this.FormData = {
+        title: "",
+        content: "",
+      };
+    },
+    handleInputChange(event) {
+      const { name, value } = event.target;
+      this.FormData[name] = value;
+    },
+  },
 };
 </script>
 
@@ -35,12 +58,27 @@ export default {
       <p>{{ post.content }}</p>
     </div>
   </div>
-  <form action="" @submit="">
+  <form>
     <label> Título </label>
-    <input type="text" name="title" placeholder="digite seu títlo" />
+    <input
+      type="text"
+      name="title"
+      placeholder="digite seu título"
+      @keyup="handleInputChange"
+      :value="FormData.title"
+    />
     <label> Texto do post </label>
-    <textarea name="content" placeholder="Digite seu post"></textarea>
-    <button type="submit" name="btn_submit">Enviar</button>
+    <textarea
+      name="content"
+      placeholder="digite seu post aqui"
+      id=""
+      cols="30"
+      rows="10"
+      @keyup="handleInputChange"
+      :value="FormData.content"
+    >
+    </textarea>
+    <button type="button" @click="handleClick">Enviar</button>
   </form>
 
   <RouterView />
