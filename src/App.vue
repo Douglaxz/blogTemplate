@@ -28,9 +28,24 @@ export default {
       console.log(this.FormData);
 
       const now = new Date();
+      const mes = now.getMonth() + 1;
+      let novoMes = "";
+      const minutos = now.getMinutes();
+      let novoMinutos = "";
+      if (mes < 10) {
+        novoMes = "0" + mes.toString();
+      } else {
+        novoMes = mes.toString();
+      }
 
+      if (minutos < 10) {
+        novoMinutos = "0" + minutos.toString();
+      } else {
+        novoMinutos = minutos.toString();
+      }
 
-      const datadaPostagem = `${now.getDate()}/${now.getMonth() + 1;}/${now.getFullYear()}`;
+      /*const datadaPostagem = `${now.getDate()}/${novoMes}/${now.getFullYear()} ${now.getHours()}:${novoMinutos}`;*/
+      const datadaPostagem = new Date().toLocaleString("pt-BR");
 
       this.posts.push({
         title: this.FormData.title,
@@ -59,7 +74,7 @@ export default {
     </div>
   </div>
   <form>
-    <label> Título </label>
+    <label>Novo Post</label>
     <input
       type="text"
       name="title"
@@ -67,7 +82,6 @@ export default {
       @keyup="handleInputChange"
       :value="FormData.title"
     />
-    <label> Texto do post </label>
     <textarea
       name="content"
       placeholder="digite seu post aqui"
@@ -78,7 +92,7 @@ export default {
       :value="FormData.content"
     >
     </textarea>
-    <button type="button" @click="handleClick">Enviar</button>
+    <button type="button" @click="handleClick">Postar</button>
   </form>
 
   <RouterView />
@@ -93,5 +107,76 @@ form {
 
 form > * {
   margin: 1rem;
+}
+
+#lista-post {
+  background-color: purple;
+  margin-left: 25vw;
+  width: 50vw;
+  padding: 15px;
+}
+
+.post {
+  background-color: white;
+  width: 95%;
+  margin: 15px;
+  border: 2px solid black;
+  border-radius: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+  background-color: purple;
+  margin-left: 25vw;
+  width: 50vw;
+  padding: 15px;
+  align-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+label {
+  color: white;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  line-height: 40px;
+  border: 2px solid black;
+  width: 95%;
+}
+
+input {
+  border: 2px solid black;
+  line-height: 35px;
+  width: 95%;
+  border-radius: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea {
+  border: 2px solid black;
+  width: 95%;
+  border-radius: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  width: 30%;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  line-height: 30px;
+}
+
+button:hover {
+  background-color: pink;
+  font-weight: bolder;
+}
+
+template {
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>
