@@ -21,30 +21,24 @@ export default {
         title: "",
         content: "",
       },
+      search: "",
     };
+  },
+  computed: {
+    filteredPosts() {
+      if (!this.search) return this.posts;
+
+      const listaFinal = [];
+      for (const post of this.posts) {
+        if (post.title.includes(this.search)) {
+          listaFinal.push(post);
+        }
+      }
+      return listaFinal;
+    },
   },
   methods: {
     handleClick(event) {
-      console.log(this.FormData);
-
-      const now = new Date();
-      const mes = now.getMonth() + 1;
-      let novoMes = "";
-      const minutos = now.getMinutes();
-      let novoMinutos = "";
-      if (mes < 10) {
-        novoMes = "0" + mes.toString();
-      } else {
-        novoMes = mes.toString();
-      }
-
-      if (minutos < 10) {
-        novoMinutos = "0" + minutos.toString();
-      } else {
-        novoMinutos = minutos.toString();
-      }
-
-      /*const datadaPostagem = `${now.getDate()}/${novoMes}/${now.getFullYear()} ${now.getHours()}:${novoMinutos}`;*/
       const datadaPostagem = new Date().toLocaleString("pt-BR");
 
       this.posts.push({
@@ -66,8 +60,13 @@ export default {
 </script>
 
 <template>
+  <input
+    placeholder="procure pelo título do post"
+    v-model="search"
+    @keyup="filteredPosts"
+  />
   <div id="lista-post">
-    <div class="post" v-for="post in posts" :key="post.title">
+    <div class="post" v-for="post in filteredPosts" :key="post.title">
       <h3>{{ post.title }}</h3>
       <h4>{{ post.datetime }}</h4>
       <p>{{ post.content }}</p>
