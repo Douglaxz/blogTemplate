@@ -8,12 +8,12 @@ export default {
       posts: [
         {
           title: "Meu primeiro post",
-          datetime: Date.now(),
+          datetime: new Date().toLocaleString("pt-BR"),
           content: "postar aqui é bem legal",
         },
         {
           title: "Meu segundo post",
-          datetime: Date.now(),
+          datetime: new Date().toLocaleString("pt-BR"),
           content: "postar aqui é bem mais legal",
         },
       ],
@@ -75,23 +75,13 @@ export default {
   </div>
   <form>
     <label>Novo Post</label>
-    <input
-      type="text"
-      name="title"
-      placeholder="digite seu título"
-      @keyup="handleInputChange"
-      :value="FormData.title"
-    />
+    <input v-model="FormData.title" placeholder="digite seu titulo aqui" />
     <textarea
-      name="content"
+      v-model="FormData.content"
       placeholder="digite seu post aqui"
-      id=""
       cols="30"
       rows="10"
-      @keyup="handleInputChange"
-      :value="FormData.content"
-    >
-    </textarea>
+    ></textarea>
     <button type="button" @click="handleClick">Postar</button>
   </form>
 
