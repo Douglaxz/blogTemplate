@@ -1,7 +1,5 @@
 <script></script>
 
 <template>
-  <main>
-    {{ post }}
-  </main>
+  <main></main>
 </template>
