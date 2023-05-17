@@ -60,11 +60,16 @@ export default {
 </script>
 
 <template>
-  <input
-    placeholder="procure pelo título do post"
-    v-model="search"
-    @keyup="filteredPosts"
-  />
+  <div id="lista-post">
+    <div id="pesquisa-post">
+      <input
+        class="inputPesquisa"
+        placeholder="procure pelo título do post"
+        v-model="search"
+        @keyup="filteredPosts"
+      />
+    </div>
+  </div>
   <div id="lista-post">
     <div class="post" v-for="post in filteredPosts" :key="post.title">
       <h3>{{ post.title }}</h3>
@@ -164,8 +169,12 @@ button:hover {
   background-color: pink;
   font-weight: bolder;
 }
+#pesquisa-post {
+  margin-left: 15px;
+}
 
-template {
-  font-family: Arial, Helvetica, sans-serif;
+::-webkit-input-placeholder {
+  color: black;
+  font-weight: bold;
 }
 </style>
