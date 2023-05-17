@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <div id="lista-post">
+  <div id="busca-post">
     <div id="pesquisa-post">
       <input
         class="inputPesquisa"

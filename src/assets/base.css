@@ -1,39 +1,39 @@
 form {
   background-color: purple;
-  margin-left: 25vw;
-  width: 100vw;
   padding: 15px;
   align-content: center;
   text-align: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
 }
 
 label {
-  color: white;
   background-color: white;
   color: black;
   border-radius: 15px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
   line-height: 40px;
   border: 2px solid black;
-  width: 95%;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 input {
   border: 2px solid black;
-  line-height: 35px;
-  width: 95%;
+  line-height: 40px;
+  width: 100%;
   border-radius: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
 }
 
 textarea {
   border: 2px solid black;
-  width: 95%;
+  width: 100%;
   border-radius: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
 }
 
 button {
@@ -52,7 +52,56 @@ button:hover {
   margin-left: 15px;
 }
 
+body {
+  margin-left: 25vw;
+  width: 50vw;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 30px;
+  border: 1px black solid;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 ::-webkit-input-placeholder {
   color: black;
   font-weight: bold;
+}
+
+#lista-post {
+  background-color: purple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#busca-post {
+  background-color: purple;
+  height: 10vh;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 4%;
+}
+
+.post {
+  background-color: white;
+  width: 90%;
+  margin-bottom: 5%;
+  border-radius: 15px;
+}
+
+header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: purple;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+nav {
+  color: white;
 }
