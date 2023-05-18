@@ -7,12 +7,21 @@ import "@/assets/base.css";
 export default {
   data() {
     return {
-      posts: [],
+      posts: [
+        {
+          title: "meu primeiro post",
+          datetime: "18/05/2023",
+          content: "meu lindo post",
+        },
+      ],
     };
   },
   methods: {
     addPost(newPost) {
       this.posts.push(newPost);
+    },
+    updatePost(updatePost, id) {
+      this.posts[id] = updatePost;
     },
   },
 };
@@ -21,12 +30,13 @@ export default {
 <template>
   <header>
     <nav>
+      |
       <RouterLink to="/">Home</RouterLink> |
       <RouterLink to="/create">New</RouterLink> |
     </nav>
   </header>
   <main>
-    <RouterView :posts="posts" @create-post="addPost" />
+    <RouterView :posts="posts" @create-post="addPost" @edit-post="updatePost" />
   </main>
   <footer>Um belo blog</footer>
 </template>
