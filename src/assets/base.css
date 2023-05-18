@@ -1,39 +1,41 @@
 form {
   background-color: purple;
-  margin-left: 25vw;
-  width: 100vw;
   padding: 15px;
   align-content: center;
   text-align: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
 }
 
 label {
-  color: white;
   background-color: white;
   color: black;
   border-radius: 15px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
   line-height: 40px;
-  border: 2px solid black;
-  width: 95%;
+  border: 5px solid black;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 input {
-  border: 2px solid black;
-  line-height: 35px;
-  width: 95%;
+  border: 5px solid black;
+  line-height: 40px;
+  width: 98%;
   border-radius: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
 }
 
 textarea {
-  border: 2px solid black;
-  width: 95%;
+  border: 5px solid black;
+  width: 100%;
   border-radius: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
 }
 
 button {
@@ -42,6 +44,8 @@ button {
   background-color: white;
   border-radius: 15px;
   line-height: 30px;
+  border: 5px solid black;
+  font-size: 1.2rem;
 }
 
 button:hover {
@@ -52,7 +56,93 @@ button:hover {
   margin-left: 15px;
 }
 
+body {
+  margin-left: 25vw;
+  width: 50vw;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 30px;
+  border: 1px black solid;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 ::-webkit-input-placeholder {
   color: black;
   font-weight: bold;
+}
+
+#lista-post {
+  background-color: purple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+}
+
+#busca-post {
+  background-color: purple;
+  height: 10vh;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 4%;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+}
+
+.post {
+  background-color: white;
+  width: 90%;
+  margin-bottom: 5%;
+  border-radius: 15px;
+  border: 5px solid black;
+}
+
+header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: purple;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border: 5px solid black;
+}
+
+nav {
+  color: white;
+}
+
+#inputBusca {
+  border: 5px solid black;
+  line-height: 40px;
+  width: 97%;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  margin-left: -10px;
+}
+
+footer {
+  background-color: purple;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border: 5px solid black;
+  color: white;
+  text-align: center;
+  height: 5vh;
+  padding-top: 10px;
+}
+
+.nenhumPost {
+  background-color: white;
+  width: 90%;
+  margin-bottom: 5%;
+  border-radius: 15px;
+  border: 5px solid black;
+  height: 10vh;
+  text-align: center;
+  padding-top: 35px;
 }
