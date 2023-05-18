@@ -21,13 +21,13 @@ export default {
 <template>
   <header>
     <nav>
-      |
       <RouterLink to="/">Home</RouterLink> |
       <RouterLink to="/create">New</RouterLink> |
     </nav>
   </header>
-
-  <RouterView :posts="posts" @create-post="addPost" />
+  <main>
+    <RouterView :posts="posts" @create-post="addPost" />
+  </main>
   <footer>Um belo blog</footer>
 </template>
 
