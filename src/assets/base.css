@@ -39,7 +39,6 @@ textarea {
 }
 
 button {
-  width: 30%;
   align-items: center;
   background-color: white;
   border-radius: 15px;
@@ -114,6 +113,9 @@ header {
 
 nav {
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #inputBusca {
@@ -145,4 +147,14 @@ footer {
   height: 10vh;
   text-align: center;
   padding-top: 35px;
+}
+
+.icone {
+  color: black;
+  border: 5px solid black;
+  border-radius: 10px;
+}
+
+.icone:hover {
+  background-color: purple;
 }
