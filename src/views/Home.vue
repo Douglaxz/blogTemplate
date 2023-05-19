@@ -52,7 +52,9 @@ export default {
         <RouterLink :to="`/edit/${getPostId(post.title)}`">
           <span class="material-symbols-sharp icone"> edit </span>
         </RouterLink>
-        <span class="material-symbols-sharp"> visibility </span>
+        <RouterLink :to="`/detail/${getPostId(post.title)}`">
+          <span class="material-symbols-sharp icone"> visibility </span>
+        </RouterLink>
       </h3>
       <h4>{{ post.datetime }}</h4>
       <p>{{ post.content }}</p>

@@ -10,7 +10,7 @@ export default {
       posts: [
         {
           title: "meu primeiro post",
-          datetime: "18/05/2023",
+          datetime: new Date().toLocaleString("pt-BR"),
           content: "meu lindo post",
         },
       ],
@@ -18,6 +18,7 @@ export default {
   },
   methods: {
     addPost(newPost) {
+      alert(newPost.datetime);
       this.posts.push(newPost);
     },
     updatePost(updatePost, id) {
@@ -30,15 +31,23 @@ export default {
 <template>
   <header>
     <nav>
-      |
-      <RouterLink to="/">Home</RouterLink> |
-      <RouterLink to="/create">New</RouterLink> |
+      |&nbsp;
+      <span class="material-symbols-sharp"> home </span>
+      <RouterLink to="/">Home</RouterLink>
+      &nbsp; |&nbsp;
+      <span class="material-symbols-sharp"> add_circle </span>
+      <RouterLink to="/create"> New</RouterLink>
+      &nbsp; |
     </nav>
   </header>
   <main>
+    
     <RouterView :posts="posts" @create-post="addPost" @edit-post="updatePost" />
   </main>
-  <footer>Um belo blog</footer>
+  <footer>
+    <span class="material-symbols-sharp"> chat </span> Um belo blog
+    <span class="material-symbols-sharp"> chat </span>
+  </footer>
 </template>
 
 <style scoped></style>

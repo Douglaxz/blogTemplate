@@ -6,8 +6,11 @@ export default {
     posts: Array,
   },
   data() {
+    const id = this.$route.params.id;
+
     return {
-      post: this.posts[this.$route.params.id],
+      id: id,
+      post: this.posts[id],
     };
   },
   components: {
@@ -17,5 +20,5 @@ export default {
 </script>
 
 <template>
-  <PostForm :post="post"></PostForm>
+  <PostForm :post="post" :id="id"></PostForm>
 </template>

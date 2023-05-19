@@ -15,18 +15,20 @@ export default {
   },
   methods: {
     handleClickCreatePost(event) {
+      alert(id);
       if (!this.FormData.title || !this.FormData.content) {
         alert("Por favo preencha todos os campos");
         return;
       }
+      const datadaPostagem = new Date().toLocaleString("pt-BR");
 
       const postData = {
         title: this.FormData.title,
-        content: this.FormData.content,
-        datetime: new Date().toLocaleString("pt-BR"),
+        content: this.FormData.title,
+        datetime: datadaPostagem,
       };
 
-      if (this.isEditing) {
+      if (isEditing) {
         this.$emit("edit-post", postData, this.id);
       } else {
         this.$emit("create-post", postData);
@@ -36,6 +38,7 @@ export default {
         title: "",
         content: "",
       };
+
       this.$router.push("/");
     },
   },
@@ -43,19 +46,18 @@ export default {
 </script>
 <template>
   <form>
-    <label>Novo Post</label>
-    <input v-model="FormData.title" placeholder="digite seu titulo aqui" />
-    <textarea
-      v-model="FormData.content"
-      placeholder="digite seu post aqui"
-      cols="30"
-      rows="10"
-    ></textarea>
-    <span class="material-symbols-sharp icone" @click="handleClickCreatePost">
-      save
-    </span>
-    <RouterLink :to="`/`">
-      <span class="material-symbols-sharp icone"> reply </span>
-    </RouterLink>
+    <label>Visualizar Post</label>
   </form>
+  <div id="lista-post">
+    <div class="post">
+      <h3>
+        {{ post.title }}
+        <RouterLink :to="`/`">
+          <span class="material-symbols-sharp icone"> reply </span>
+        </RouterLink>
+      </h3>
+      <h4>{{ post.datetime }}</h4>
+      <p>{{ post.content }}</p>
+    </div>
+  </div>
 </template>
