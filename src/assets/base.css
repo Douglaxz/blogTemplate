@@ -150,8 +150,8 @@ footer {
 }
 
 .icone {
-  color: black;
-  border: 5px solid black;
+  color: white;
+  border: 5px solid white;
   border-radius: 10px;
 }
 
@@ -192,4 +192,17 @@ footer {
 
 .bg-success {
   background-color: green;
+}
+
+.flex {
+  background-color: black;
+  width: 25%;
+  text-align: center;
+  display: flex;
+  margin-left: 35%;
+  height: 50px;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }

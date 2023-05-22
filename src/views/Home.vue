@@ -62,8 +62,7 @@ export default {
   </div>
   <div id="lista-post">
     <div class="post" v-for="(post, index) in filteredPosts" :key="post.title">
-      <h3>
-        {{ post.title }}
+      <div class="flex">
         <RouterLink :to="`/edit/${getPostId(post.title)}`">
           <span class="material-symbols-sharp icone"> edit </span>
         </RouterLink>
@@ -76,6 +75,9 @@ export default {
         >
           delete
         </span>
+      </div>
+      <h3>
+        {{ post.title }}
       </h3>
       <h4>{{ post.datetime }}</h4>
       <p>{{ post.content }}</p>
