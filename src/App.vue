@@ -18,11 +18,13 @@ export default {
   },
   methods: {
     addPost(newPost) {
-      alert(newPost.datetime);
       this.posts.push(newPost);
     },
     updatePost(updatePost, id) {
       this.posts[id] = updatePost;
+    },
+    removePost(id) {
+      this.posts.splice(id, 1);
     },
   },
 };
@@ -41,8 +43,12 @@ export default {
     </nav>
   </header>
   <main>
-    
-    <RouterView :posts="posts" @create-post="addPost" @edit-post="updatePost" />
+    <RouterView
+      :posts="posts"
+      @create-post="addPost"
+      @edit-post="updatePost"
+      @delete-post="removePost"
+    />
   </main>
   <footer>
     <span class="material-symbols-sharp"> chat </span> Um belo blog

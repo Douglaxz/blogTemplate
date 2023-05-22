@@ -158,3 +158,38 @@ footer {
 .icone:hover {
   background-color: purple;
 }
+
+.modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 80%;
+  max-width: 800px;
+
+  border-radius: 4px;
+}
+.modal-actions {
+}
+
+.bg-error {
+  background-color: red;
+}
+
+.bg-success {
+  background-color: green;
+}
