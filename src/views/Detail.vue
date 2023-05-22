@@ -1,6 +1,5 @@
 <script>
 import { RouterLink } from "vue-router";
-import PostForm from "@/components/PostForm.vue";
 import PostLayout from "@/components/PostLayout.vue";
 export default {
   props: {
