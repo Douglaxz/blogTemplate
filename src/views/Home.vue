@@ -8,6 +8,8 @@ export default {
   data() {
     return {
       search: "",
+      showModal: false,
+      selectedPost: null,
     };
   },
   computed: {
@@ -29,6 +31,19 @@ export default {
         const post = this.posts[index];
         if (post.title === title) return index;
       }
+    },
+    setupModal(id) {
+      this.showModal = !this.showModal;
+      if (id) {
+        this.selectedPost = this.posts[id];
+        return;
+      }
+      this.selectedPost = null;
+    },
+    deletePost() {
+      const id = this.getPostId(this.selectedPost.title);
+      this.$emit("delete-post", id);
+      this.setupModal();
     },
   },
 };
@@ -55,9 +70,27 @@ export default {
         <RouterLink :to="`/detail/${getPostId(post.title)}`">
           <span class="material-symbols-sharp icone"> visibility </span>
         </RouterLink>
+        <span
+          class="material-symbols-sharp icone"
+          @click="setupModal(getPostId(post.title))"
+        >
+          delete
+        </span>
       </h3>
       <h4>{{ post.datetime }}</h4>
       <p>{{ post.content }}</p>
+    </div>
+    <div class="modal" v-show="showModal">
+      <div class="modal-content">
+        <h3>Deletar Post</h3>
+        <p>
+          Você tem certeza que quer delevar o post? '{{ selectedPost?.title }}'
+        </p>
+        <div class="modal-actions">
+          <button class="bg-error" @click="setupModal">Cancelar</button>
+          <button class="bg-success" @click="deletePost">Confirmar</button>
+        </div>
+      </div>
     </div>
     <div v-if="filteredPosts == ''" class="nenhumPost">
       Que pena, nenhum post ainda =(
