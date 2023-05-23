@@ -9,6 +9,8 @@ export default {
       FormData: {
         title: this.post?.title || "",
         content: this.post?.content || "",
+        image: this.post?.image || "",
+        star: this.post?.star || "0",
       },
       isEditing: Boolean(this.post),
     };
@@ -24,6 +26,8 @@ export default {
         title: this.FormData.title,
         content: this.FormData.content,
         datetime: new Date().toLocaleString("pt-BR"),
+        image: this.FormData.image,
+        star: this.FormData.star,
       };
 
       if (this.isEditing) {
@@ -43,7 +47,15 @@ export default {
 </script>
 <template>
   <form>
-    <label>Novo Post</label>
+    <div class="flexPostForm">
+      {{ isEditing ? "Editando Post" : "Novo Post" }}
+      <span class="material-symbols-sharp icone" @click="handleClickCreatePost">
+        save
+      </span>
+      <RouterLink :to="`/`">
+        <span class="material-symbols-sharp icone"> reply </span>
+      </RouterLink>
+    </div>
     <input v-model="FormData.title" placeholder="digite seu titulo aqui" />
     <textarea
       v-model="FormData.content"
@@ -51,11 +63,6 @@ export default {
       cols="30"
       rows="10"
     ></textarea>
-    <span class="material-symbols-sharp icone" @click="handleClickCreatePost">
-      save
-    </span>
-    <RouterLink :to="`/`">
-      <span class="material-symbols-sharp icone"> reply </span>
-    </RouterLink>
+    <input v-model="FormData.image" placeholder="digite a url da imagem" />
   </form>
 </template>

@@ -45,20 +45,25 @@ export default {
       this.$emit("delete-post", id);
       this.setupModal();
     },
+    addStar(id) {
+      this.$emit("add-Star", id);
+    },
+    delStar(id) {
+      this.$emit("del-Star", id);
+    },
   },
 };
 </script>
 
 <template>
-  <div id="busca-post">
-    <div id="pesquisa-post">
-      <input
-        id="inputBusca"
-        placeholder="procure pelo título do post"
-        v-model="search"
-        @keyup="filteredPosts"
-      />
-    </div>
+  <div class="busca-post">
+    <input
+      id="inputBusca"
+      placeholder="procure pelo título do post"
+      v-model="search"
+      @keyup="filteredPosts"
+    />
+    <span class="material-symbols-sharp fa-search"> search </span>
   </div>
   <div id="lista-post">
     <div class="post" v-for="(post, index) in filteredPosts" :key="post.title">
@@ -76,12 +81,37 @@ export default {
           delete
         </span>
       </div>
-      <h3>
-        {{ post.title }}
-      </h3>
-      <h4>{{ post.datetime }}</h4>
-      <p>{{ post.content }}</p>
+      <div class="divTituloData">
+        <h3>{{ post.title }}</h3>
+        &nbsp;
+        <h3>
+          {{ post.datetime }}
+        </h3>
+      </div>
+      <textarea cols="20" rows="20" class="textareaHome">{{
+        post.content
+      }}</textarea>
+
+      <img :src="post.image" class="imagePost" />
+      <div class="stars">
+        <span
+          class="material-symbols-sharp iconStar"
+          @click="delStar(getPostId(post.title))"
+        >
+          keyboard_double_arrow_left
+        </span>
+        <span class="material-symbols-sharp iconStar"> grade </span>
+        <p class="starcount">{{ post.star }}</p>
+
+        <span
+          class="material-symbols-sharp iconStar"
+          @click="addStar(getPostId(post.title))"
+        >
+          keyboard_double_arrow_right
+        </span>
+      </div>
     </div>
+
     <div class="modal" v-show="showModal">
       <div class="modal-content">
         <h3>Deletar Post</h3>
