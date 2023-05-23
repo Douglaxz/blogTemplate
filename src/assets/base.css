@@ -26,9 +26,11 @@ label {
 input {
   border: 5px solid black;
   line-height: 40px;
-  width: 98%;
+  width: 100%;
   border-radius: 15px;
   margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
 }
 
 textarea {
@@ -36,6 +38,8 @@ textarea {
   width: 100%;
   border-radius: 15px;
   margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
 }
 
 button {
@@ -50,9 +54,6 @@ button {
 button:hover {
   background-color: pink;
   font-weight: bolder;
-}
-#pesquisa-post {
-  margin-left: 15px;
 }
 
 body {
@@ -80,16 +81,19 @@ a {
   align-items: center;
   border-left: 5px solid black;
   border-right: 5px solid black;
+  padding-top: 40px;
 }
 
-#busca-post {
+.busca-post {
+  padding-top: 30px;
   background-color: purple;
-  height: 10vh;
-  padding-left: 3%;
-  padding-right: 3%;
-  padding-top: 4%;
+  height: 7vh;
   border-left: 5px solid black;
   border-right: 5px solid black;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  position: relative;
 }
 
 .post {
@@ -121,10 +125,17 @@ nav {
 #inputBusca {
   border: 5px solid black;
   line-height: 40px;
-  width: 97%;
+  width: 90%;
   border-radius: 15px;
-  margin-bottom: 10px;
-  margin-left: -10px;
+}
+
+.fa-search {
+  position: absolute;
+  top: 60%;
+  right: 60px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: black;
 }
 
 footer {
@@ -134,7 +145,6 @@ footer {
   border: 5px solid black;
   color: white;
   text-align: center;
-  height: 5vh;
   padding-top: 10px;
 }
 
@@ -183,8 +193,6 @@ footer {
 
   border-radius: 4px;
 }
-.modal-actions {
-}
 
 .bg-error {
   background-color: red;
@@ -196,13 +204,162 @@ footer {
 
 .flex {
   background-color: black;
-  width: 25%;
+  width: 27%;
   text-align: center;
   display: flex;
-  margin-left: 35%;
+  margin-left: 36%;
   height: 50px;
   justify-content: space-around;
   align-items: center;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+  color: white;
+}
+
+.flexPostForm {
+  background-color: black;
+  width: 27%;
+  text-align: center;
+  display: flex;
+  margin-left: 00%;
+  height: 50px;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-top: -50px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.flexCenter {
+  background-color: black;
+  width: 25%;
+  text-align: center;
+  display: flex;
+  margin-left: 00%;
+  height: 50px;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-bottom: 10px;
+}
+
+.imagePost {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-left: 8%;
+  margin-top: 5%;
+}
+
+.stars {
+  background-color: black;
+  width: 25%;
+  text-align: center;
+  display: flex;
+  margin-left: 37%;
+  height: 50px;
+  justify-content: space-around;
+  align-items: center;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.iconStar {
+  color: white;
+  border-radius: 20px;
+}
+
+.starcount {
+  color: white;
+}
+
+.textareaHome {
+  border: none;
+  width: 90%;
+  margin-bottom: 10px;
+  margin-left: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+
+.divTituloData {
+  display: flex;
+  margin-left: 5%;
+  margin-right: 7%;
+  justify-content: space-between;
+}
+
+@media only screen and (max-device-width: 500px) {
+  body {
+    background-color: white;
+    width: 99vw;
+    margin-left: 0;
+  }
+
+  header {
+    width: 97vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: purple;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border: 5px solid black;
+  }
+
+  template {
+    background-color: aquamarine;
+  }
+
+  .flexCenter {
+    width: 70%;
+  }
+
+  .flex {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .stars {
+    width: 70%;
+    margin-left: 17%;
+  }
+
+  form {
+    min-height: 80vh;
+  }
+
+  .flexPostForm {
+    width: 50%;
+    margin-top: -19px;
+  }
+
+  textarea {
+    height: 70vh;
+  }
+
+  .flex {
+    width: 60vw;
+    margin-left: 15vw;
+  }
+
+  .flexPostForm {
+    color: white;
+    width: 70%;
+  }
+
+  .fa-search {
+    position: absolute;
+    top: 60%;
+    right: 35px;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: black;
+  }
 }
