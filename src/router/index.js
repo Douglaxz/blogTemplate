@@ -4,6 +4,8 @@ import CreateView from "../views/Create.vue";
 import DetailView from "../views/Detail.vue";
 import EditView from "../views/Edit.vue";
 
+/*teste*/
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
