@@ -49,6 +49,8 @@ button {
   line-height: 30px;
   border: 5px solid black;
   font-size: 1.2rem;
+  display: flex;
+  width: 135px;
 }
 
 button:hover {
@@ -169,6 +171,10 @@ footer {
   background-color: purple;
 }
 
+.modal-actions {
+  display: flex;
+}
+
 .modal {
   position: absolute;
   width: 100vw;
@@ -198,10 +204,6 @@ footer {
 
 .bg-success {
   background-color: green;
-}
-
-.bg-success {
-  background-color: white;
 }
 
 .flex {
@@ -274,6 +276,19 @@ footer {
   border-top-right-radius: 30px;
 }
 
+.footerBlog {
+  background-color: black;
+  width: 25%;
+  text-align: center;
+  display: flex;
+  margin-left: 37%;
+  height: 50px;
+  justify-content: space-around;
+  align-items: center;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
 .iconStar {
   color: white;
   border-radius: 20px;
@@ -290,6 +305,7 @@ footer {
   margin-left: 5%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.1rem;
+  resize: none;
 }
 
 .divTituloData {
@@ -332,7 +348,81 @@ footer {
   border-top-right-radius: 30px;
 }
 
+.iconeButtons {
+  top: 5px;
+}
+
+table {
+  width: 90%;
+  background-color: white;
+  align-items: center;
+  border: 5px solid black;
+  border-radius: 30px;
+  border-collapse: collapse; /* Adiciona bordas internas */
+  margin-bottom: 10px;
+}
+
+td,
+th {
+  border: 5px solid black; /* Estilo das bordas das células */
+  text-align: center;
+}
+
+.table-cell1 {
+  width: 30%;
+  height: 50px;
+}
+
+.table-cell2 {
+  width: 70%;
+  height: 50px;
+}
+
+.divRankingPosts {
+  padding-top: 20px;
+  background-color: purple;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.divRankingPostsListagem {
+  background-color: white;
+  width: 25%;
+  border: 5px solid black;
+  border-radius: 30px;
+  align-items: center;
+  margin: 10px;
+  height: 200px;
+  padding: 5px;
+}
+
+ol {
+  padding-left: 10; /* Remover o recuo padrão */
+}
+
+li {
+  align-items: center;
+  margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
 @media only screen and (max-device-width: 500px) {
+  .divRankingPosts {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .divRankingPostsListagem {
+    width: 97%;
+    margin-left: 2px;
+    height: 170px;
+  }
+
   body {
     background-color: white;
     width: 99vw;
@@ -380,7 +470,7 @@ footer {
   }
 
   textarea {
-    height: 70vh;
+    height: 53vh;
   }
 
   .flex {
@@ -400,5 +490,10 @@ footer {
     transform: translateY(-50%);
     font-size: 30px;
     color: black;
+  }
+
+  .footerBlog {
+    width: 60%;
+    margin-left: 22%;
   }
 }

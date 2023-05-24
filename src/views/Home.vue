@@ -88,9 +88,9 @@ export default {
           {{ post.datetime }}
         </h3>
       </div>
-      <textarea cols="20" rows="20" class="textareaHome">{{
-        post.content
-      }}</textarea>
+      <textarea cols="20" rows="10" class="textareaHome"
+        >{{ post.content.substring(0, 565) }}...</textarea
+      >
 
       <img :src="post.image" class="imagePost" />
       <div class="stars">
@@ -113,14 +113,25 @@ export default {
     </div>
 
     <div class="modal" v-show="showModal">
-      <div class="modal-content">
-        <h3>Deletar Post</h3>
-        <p>
-          Você tem certeza que quer delevar o post? '{{ selectedPost?.title }}'
-        </p>
+      <div class="divModalHelpCabecalho">
+        <div class="flexCenter">Deletar Post?</div>
+        <div class="textoModalHelp">
+          <p>
+            Você tem certeza que quer delevar o post? '{{
+              selectedPost?.title
+            }}'
+          </p>
+        </div>
         <div class="modal-actions">
-          <button class="bg-error" @click="setupModal">Cancelar</button>
-          <button class="bg-success" @click="deletePost">Confirmar</button>
+          <button class="bg-error" @click="setupModal">
+            <span class="material-symbols-sharp iconeButtons"> close </span
+            >Cancelar
+          </button>
+
+          <button class="bg-success" @click="deletePost">
+            <span class="material-symbols-sharp iconeButtons"> check </span>
+            Confirmar
+          </button>
         </div>
       </div>
     </div>
