@@ -7,6 +7,8 @@ import "@/assets/base.css";
 export default {
   data() {
     return {
+      /*variável para mostrar o modal de ajuda*/
+      showHelp: false,
       posts: [
         {
           title: "Javascript",
@@ -29,6 +31,7 @@ export default {
       ],
     };
   },
+  /*função para carregar o conteúdo dos posts da localstorage*/
   created() {
     const postsString = localStorage.getItem("posts");
     if (postsString) {
@@ -62,6 +65,9 @@ export default {
       const postsString = JSON.stringify(this.posts);
       localStorage.setItem("posts", postsString);
     },
+    setupHelp() {
+      this.showHelp = !this.showHelp;
+    },
   },
 };
 </script>
@@ -77,6 +83,9 @@ export default {
           add_circle
         </span></RouterLink
       >
+      <span class="material-symbols-sharp icone" @click="setupHelp()">
+        question_mark
+      </span>
     </div>
   </header>
   <main>
@@ -88,6 +97,31 @@ export default {
       @add-star="addStar"
       @del-star="delStar"
     />
+    <div class="modal" v-show="showHelp">
+      <div class="divModalHelpCabecalho">
+        <div class="flexCenter">Ajuda</div>
+        <div class="textoModalHelp">
+          <p>
+            Geral:<br />
+            <span class="material-symbols-sharp"> home </span> - Acessar a
+            pagina inicial<br />
+            <span class="material-symbols-sharp"> add_circle </span> - Criar um
+            novo post<br />
+            &nbsp;<br />
+            No post:<br />
+            <span class="material-symbols-sharp"> edit </span> - Editar post<br />
+            <span class="material-symbols-sharp"> visibility </span> -
+            Visualizar post<br />
+            <span class="material-symbols-sharp"> delete </span> - Apagar post
+          </p>
+        </div>
+        <div class="footerModalHelp">
+          <span class="material-symbols-sharp icone" @click="setupHelp">
+            close
+          </span>
+        </div>
+      </div>
+    </div>
   </main>
   <footer>
     <span class="material-symbols-sharp"> chat </span> Um belo blog

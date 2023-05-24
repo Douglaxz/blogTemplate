@@ -187,10 +187,8 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   width: 80%;
   max-width: 800px;
-
   border-radius: 4px;
 }
 
@@ -200,6 +198,10 @@ footer {
 
 .bg-success {
   background-color: green;
+}
+
+.bg-success {
+  background-color: white;
 }
 
 .flex {
@@ -244,6 +246,8 @@ footer {
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   margin-bottom: 10px;
+  color: white;
+  font-weight: bolder;
 }
 
 .imagePost {
@@ -259,10 +263,10 @@ footer {
 
 .stars {
   background-color: black;
-  width: 25%;
+  width: 27%;
   text-align: center;
   display: flex;
-  margin-left: 37%;
+  margin-left: 36%;
   height: 50px;
   justify-content: space-around;
   align-items: center;
@@ -295,6 +299,39 @@ footer {
   justify-content: space-between;
 }
 
+.divModalHelpCabecalho {
+  background-color: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  max-width: 600px;
+  border-radius: 15px;
+  border: 5px black solid;
+}
+
+.textoModalHelp {
+  background-color: white;
+  width: 90%;
+  border: 5px solid black;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.footerModalHelp {
+  background-color: black;
+  width: 25%;
+  text-align: center;
+  display: flex;
+  margin-left: 0%;
+  height: 50px;
+  justify-content: space-around;
+  align-items: center;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
 @media only screen and (max-device-width: 500px) {
   body {
     background-color: white;
@@ -319,6 +356,8 @@ footer {
 
   .flexCenter {
     width: 70%;
+    color: white;
+    font-weight: bolder;
   }
 
   .flex {
