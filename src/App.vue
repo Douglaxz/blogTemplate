@@ -38,6 +38,20 @@ export default {
       this.posts = JSON.parse(postsString);
     }
   },
+  computed: {
+    ranking() {
+      // Fazer uma cópia do array de objetos
+      const arrayOrdenado = [...this.posts];
+
+      // Ordenar o array com base na quantidade de "star" em ordem decrescente
+      arrayOrdenado.sort((a, b) => b.star - a.star);
+
+      // Retornar apenas os três primeiros objetos
+      console.log(arrayOrdenado);
+      return arrayOrdenado.slice(0, 3);
+    },
+  },
+
   methods: {
     addPost(newPost) {
       this.posts.push(newPost);
@@ -89,6 +103,25 @@ export default {
     </div>
   </header>
   <main>
+    <div class="divRankingPosts">
+      <div class="divRankingPostsListagem">
+        <h2>Melhores Posts:</h2>
+        <ol>
+          <li v-for="objeto in ranking" :key="objeto.name">
+            {{ objeto.title }} - {{ objeto.star }}
+            <span class="material-symbols-sharp"> grade </span>
+          </li>
+        </ol>
+      </div>
+      <div
+        class="divRankingPostsListagem"
+        v-for="objeto in ranking"
+        :key="objeto.name"
+      >
+        <h2>{{ objeto.title }}</h2>
+        <p>{{ objeto.content.substring(0, 135) }}...</p>
+      </div>
+    </div>
     <RouterView
       :posts="posts"
       @create-post="addPost"
@@ -100,21 +133,58 @@ export default {
     <div class="modal" v-show="showHelp">
       <div class="divModalHelpCabecalho">
         <div class="flexCenter">Ajuda</div>
-        <div class="textoModalHelp">
-          <p>
-            Geral:<br />
-            <span class="material-symbols-sharp"> home </span> - Acessar a
-            pagina inicial<br />
-            <span class="material-symbols-sharp"> add_circle </span> - Criar um
-            novo post<br />
-            &nbsp;<br />
-            No post:<br />
-            <span class="material-symbols-sharp"> edit </span> - Editar post<br />
-            <span class="material-symbols-sharp"> visibility </span> -
-            Visualizar post<br />
-            <span class="material-symbols-sharp"> delete </span> - Apagar post
-          </p>
-        </div>
+        <table>
+          <tr>
+            <th class="table-cell1">Icone</th>
+            <th class="table-cell2">Função</th>
+          </tr>
+          <tr>
+            <td class="table-cell1">
+              <span class="material-symbols-sharp"> home </span>
+            </td>
+            <td class="table-cell2">Acessar a pagina inicial</td>
+          </tr>
+          <tr>
+            <td class="table-cell1">
+              <span class="material-symbols-sharp"> add_circle </span>
+            </td>
+            <td class="table-cell2">Novo post</td>
+          </tr>
+          <tr>
+            <td class="table-cell1">
+              <span class="material-symbols-sharp"> edit </span>
+            </td>
+            <td class="table-cell2">Editar post</td>
+          </tr>
+          <tr>
+            <td class="table-cell1">
+              <span class="material-symbols-sharp"> visibility </span>
+            </td>
+            <td class="table-cell2">Visualizar post</td>
+          </tr>
+          <tr>
+            <td class="table-cell1">
+              <span class="material-symbols-sharp"> delete </span>
+            </td>
+            <td class="table-cell2">Apagar post</td>
+          </tr>
+          <tr>
+            <td class="table-cell1">
+              <span class="material-symbols-sharp">
+                keyboard_double_arrow_right
+              </span>
+            </td>
+            <td class="table-cell2">Aumentar estrelas</td>
+          </tr>
+          <tr>
+            <td class="table-cell1">
+              <span class="material-symbols-sharp">
+                keyboard_double_arrow_left
+              </span>
+            </td>
+            <td class="table-cell2">Diminuir estrelas</td>
+          </tr>
+        </table>
         <div class="footerModalHelp">
           <span class="material-symbols-sharp icone" @click="setupHelp">
             close
@@ -124,8 +194,11 @@ export default {
     </div>
   </main>
   <footer>
-    <span class="material-symbols-sharp"> chat </span> Um belo blog
-    <span class="material-symbols-sharp"> chat </span>
+    <div class="footerBlog">
+      <span class="material-symbols-sharp"> device_hub </span>
+      BlogTech
+      <span class="material-symbols-sharp"> device_hub </span>
+    </div>
   </footer>
 </template>
 
