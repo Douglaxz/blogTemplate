@@ -75,13 +75,13 @@ export default {
       <img :src="post.image" class="imagePost" />
       <div class="stars">
         <span class="material-symbols-sharp iconStar" @click="delStar(id)">
-          keyboard_double_arrow_left
+          remove
         </span>
         <span class="material-symbols-sharp iconStar"> grade </span>
         <p class="starcount">{{ post.star }}</p>
 
         <span class="material-symbols-sharp iconStar" @click="addStar(id)">
-          keyboard_double_arrow_right
+          add
         </span>
       </div>
     </div>

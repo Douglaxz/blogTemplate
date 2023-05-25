@@ -98,16 +98,15 @@ export default {
           class="material-symbols-sharp iconStar"
           @click="delStar(getPostId(post.title))"
         >
-          keyboard_double_arrow_left
+          remove
         </span>
         <span class="material-symbols-sharp iconStar"> grade </span>
         <p class="starcount">{{ post.star }}</p>
-
         <span
           class="material-symbols-sharp iconStar"
           @click="addStar(getPostId(post.title))"
         >
-          keyboard_double_arrow_right
+          add
         </span>
       </div>
     </div>
