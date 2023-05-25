@@ -170,17 +170,13 @@ export default {
           </tr>
           <tr>
             <td class="table-cell1">
-              <span class="material-symbols-sharp">
-                keyboard_double_arrow_right
-              </span>
+              <span class="material-symbols-sharp"> add </span>
             </td>
             <td class="table-cell2">Aumentar estrelas</td>
           </tr>
           <tr>
             <td class="table-cell1">
-              <span class="material-symbols-sharp">
-                keyboard_double_arrow_left
-              </span>
+              <span class="material-symbols-sharp"> remove </span>
             </td>
             <td class="table-cell2">Diminuir estrelas</td>
           </tr>
